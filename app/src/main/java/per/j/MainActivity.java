@@ -208,10 +208,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void share(View view) {
-
+        Toast.makeText(this, "暂无", Toast.LENGTH_SHORT).show();
     }
 
     public void export(View view) {
-
+        if (results.size() != 0) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ExcelUtil.export2Excel(results);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tv_tips.setText("导出完成，文件名为infoJ.xls，请在手机目录中查看");
+                        }
+                    });
+                }
+            }).start();
+        } else {
+            Toast.makeText(this, "当前无数据，请先查找", Toast.LENGTH_SHORT).show();
+        }
     }
 }

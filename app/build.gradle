@@ -36,8 +36,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.amap.api:search:6.1.0'
     implementation 'com.amap.api:location:4.1.0'
+    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
 }
